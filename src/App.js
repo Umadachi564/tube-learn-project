@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import '@aws-amplify/ui-react/styles.css'; 
 
 function App() {
   return (
