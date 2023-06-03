@@ -1,13 +1,17 @@
 import './App.css';
-import '@aws-amplify/ui-react/styles.css'; 
+import '@aws-amplify/ui-react/styles.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Auth, Storage} from 'aws-amplify';
-
+import { Storage } from 'aws-amplify';
+import { Button } from '@aws-amplify/ui-react';
+import step1_1 from './images/tubelearn_step1_1.png';
+import step1_2 from './images/tubelearn_step1_2.png';
+import step2 from './images/tubelearn_step2.png';
+import step3 from './images/tubelearn_step3.png';
 
 const api_url = "https://2e65g038x5.execute-api.ap-northeast-1.amazonaws.com/staging/tubescript-staging"
 
-function CreateScript(SetToppage,url_data,SetUrl,SetDownlink){
+function CreateScript(SetToppage,SetDownbutton,url_data,SetUrl,SetDownlink){
   const onUrlChange = (event)=>{
     const v =event.target.value;
       SetUrl(v);
@@ -22,9 +26,13 @@ function CreateScript(SetToppage,url_data,SetUrl,SetDownlink){
     )
       .then((res) => {
         console.log(res.data);
+        SetDownbutton(
+            <Button variation='primary' onClick={OnDclick}>Download</Button>  
+        )
       })
       .catch((error) => {
         console.log(error);
+        alert('URLを入力してください.')
       });
   }
 
@@ -36,11 +44,10 @@ function CreateScript(SetToppage,url_data,SetUrl,SetDownlink){
       Storage.get(filename,{
         level: 'public',
       }).then(data =>{
-          console.log(data)
           SetDownlink(
-            <a href={data} target="_blank" rel="noreferrer">
-              テキストファイル
-            </a>
+              <a href={data} target="_blank" rel="noreferrer">
+                スクリプトデータ
+              </a>
           )
       })
     }catch(error){
@@ -49,36 +56,56 @@ function CreateScript(SetToppage,url_data,SetUrl,SetDownlink){
   }
   SetToppage(
     <div>
-      <h2>サンプル</h2>
-      <div>YouTubeのURLを入力してください。</div>
-      <div>
+      <h1>TubeLearn</h1>
+      <p className='text-center fs-4'>~YouTubeの動画で英語学習を~ </p>
+      <p className='text-center text-danger'>※ 字幕設定がOFFの動画は利用できません</p>
         <label>
-          URL:
-          <input type="text" name="url" onChange={onUrlChange} />
+          <input type="text" name="url" className='form-control ' placeholder='動画URL' onChange={onUrlChange} />
         </label>
-        <button type="submit" onClick={OnClick}>Add</button>
-        <button onClick={OnDclick}>Download</button>
-        
-      </div>
-    </div>
+          <Button type="submit"  className='ms-1' variation='primary' onClick={OnClick}>Submit</Button>
+    </div> 
   )
 }
 
 function App() {
   const [toppage, SetToppage] = useState("");
+  const [downloadbutton, SetDownbutton] = useState("");
   const [downloadlink, SetDownlink] = useState("");
   const [url_data, SetUrl] = useState("");
-  const [progress, SetProgress] = useState(0);
 
-  
   useEffect(()=>{
-    CreateScript(SetToppage,url_data,SetUrl,SetDownlink);
-  },[url_data,progress,downloadlink]);
+    CreateScript(SetToppage,SetDownbutton,url_data,SetUrl,SetDownlink);
+  },[url_data]);
 
   return (
     <div className="App">
       {toppage}
-      {downloadlink}
+      {downloadbutton}
+      <div className='ms-2 mt-1'>
+        {downloadlink}
+      </div>
+      <div className='container'>
+        <div className="d-flex flex-column my-4 bg-light">
+          <h3 className="alert alert-primary" role="alert">
+            使い方
+          </h3>
+          <p className='fs-3 text-start mt-2'>
+            Step1: ブラウザ上のURLか共有を開いた時のURLをコピーします
+          </p>
+          <img src ={step1_1} className='img-fluid mx-auto d-block' alt='...'/>
+          <img src ={step1_2} className='img-fluid mx-auto d-block' alt='...'/>
+          <p className='fs-3 text-start mt-2'>
+            Step2: URLを貼り付けたら「Submit」をクリック(タップ)
+          </p>
+          <img src ={step2} className='img-fluid mx-auto d-block' alt='...'/>
+          <p className='text-start fs-3 text-wrap mt-2'>
+            Step3: 5~10秒後にDownloadが表示されるので, それを押す. 
+            すると, 「スクリプトデータ」と表示されるので, それをクリックするとテキストファイルがDLされます.
+          </p>
+          <img src ={step3} className='img-fluid mx-auto d-block' alt='...'/>
+        </div>
+      </div>
+      
     </div>
   );
 }
