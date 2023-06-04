@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Storage } from 'aws-amplify';
 import { Button } from '@aws-amplify/ui-react';
-import step1_1 from './images/tubelearn_step1_1.png';
 import step1_2 from './images/tubelearn_step1_2.png';
 import step2 from './images/tubelearn_step2.png';
 import step3 from './images/tubelearn_step3.png';
@@ -90,9 +89,8 @@ function App() {
             使い方
           </h3>
           <p className='fs-3 text-start mt-2'>
-            Step1: ブラウザ上のURLか共有を開いた時のURLをコピーします
+            Step1: 共有を開いた時のURLをコピーします
           </p>
-          <img src ={step1_1} className='img-fluid mx-auto d-block' alt='...'/>
           <img src ={step1_2} className='img-fluid mx-auto d-block' alt='...'/>
           <p className='fs-3 text-start mt-2'>
             Step2: URLを貼り付けたら「Submit」をクリック(タップ)
