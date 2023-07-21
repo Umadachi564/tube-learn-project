@@ -1,6 +1,6 @@
 # TubeLearn
 
-https://main.d3lj2vqcg10hu8.amplifyapp.com/
+https://www.tubelearn-script-downloader.site/
 
 # ツール概要
 
