@@ -1,6 +1,6 @@
 # TubeLearn
 
-https://main.d3lj2vqcg10hu8.amplifyapp.com/
+https://www.tubelearn-script-downloader.site/
 
 # ツール概要
 
@@ -10,7 +10,7 @@ YouTubeのリンクを入れるだけで動画の英語スクリプトとその�
 
 # デモ動画
 
-https://github.com/Umadachi564/tube-learn-project/assets/83805342/3ea3615d-a12e-416f-8d57-b788ac792a95
+<video src="./demo/tubelearn_demo_revise.mp4" controls title="Title"></video>
 
 # ツールを作ったきっかけ
 
