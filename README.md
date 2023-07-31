@@ -10,7 +10,7 @@ YouTubeのリンクを入れるだけで動画の英語スクリプトとその�
 
 # デモ動画
 
-<video src="./demo/tubelearn_demo_revise.mp4" controls title="Title"></video>
+https://github.com/Umadachi564/tube-learn-project/assets/83805342/b795430a-9ac3-498b-887e-e5c1b513eaa9
 
 # ツールを作ったきっかけ
 
