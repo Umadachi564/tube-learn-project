@@ -8,7 +8,7 @@ verify_ssl = true
 [packages]
 src = {editable = true, path = "./src"}
 youtube-transcript-api = "*"
-urllib3 = "==1.26.15"
+urllib3 = "==1.26.18"
 
 [requires]
 python_version = "3.8"
