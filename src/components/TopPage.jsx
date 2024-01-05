@@ -12,15 +12,15 @@ export const TopPage = () => {
             <p className='fs-3 text-start mt-2'>
                 Step1: 共有を開いた時のURLをコピーします
             </p>
-            <img src ={step1_2} className='img-fluid mx-auto d-block' alt='...'/>
+            <img src ={step1_2} className='img-fluid mx-auto d-block' alt='step1_img'/>
             <p className='fs-3 text-start mt-2'>
                 Step2: URLを貼り付けたら「Submit」をクリック(タップ)
             </p>
-            <img src ={step2} className='img-fluid mx-auto d-block' alt='...'/>
+            <img src ={step2} className='img-fluid mx-auto d-block' alt='step2_img'/>
             <p className='text-start fs-3 text-wrap mt-2'> 
                 すると, 「スクリプトデータ」と表示されるので, それをクリックするとテキストファイルがDLされます.
             </p>
-            <img src ={step3} className='img-fluid mx-auto d-block' alt='...'/>
+            <img src ={step3} className='img-fluid mx-auto d-block' alt='step3_img'/>
             </div>
         </div>
     )
